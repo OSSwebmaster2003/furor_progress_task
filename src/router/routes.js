@@ -6,12 +6,28 @@ const routes = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: 'posts', component: () => import('pages/PostsPage.vue') }],
-  },
-  {
-    path: '/auth',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '/auth', component: () => import('pages/AuthPage.vue') }],
+    children: [
+      {
+        path: 'posts',
+        component: () => import('pages/PostsPage.vue'),
+      },
+      {
+        path: 'posts/search',
+        component: () => import('pages/PostsPage.vue'),
+      },
+      {
+        path: 'posts/create',
+        component: () => import('pages/CreatePostPage.vue'),
+      },
+      {
+        path: 'posts/:id',
+        component: () => import('pages/PostDetailsPage.vue'),
+      },
+      {
+        path: 'auth',
+        component: () => import('pages/AuthPage.vue'),
+      },
+    ],
   },
 ]
 

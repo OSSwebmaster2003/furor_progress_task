@@ -20,7 +20,7 @@ watch(
   () => {
     page.value = Number(route.query.page || 1)
     searchQuery.value = route.query.searchQuery || ''
-    postsStore.getPosts(page.value)
+    // postsStore.getPosts(page.value)
   },
   { immediate: true },
 )

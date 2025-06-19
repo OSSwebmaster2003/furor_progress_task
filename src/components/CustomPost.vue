@@ -11,7 +11,7 @@ const props = defineProps({
 })
 
 // Emits
-const emit = defineEmits(['set-current-id'])
+// const emit = defineEmits(['set-current-id'])
 
 // const $q = useQuasar()
 const router = useRouter()
@@ -50,9 +50,8 @@ const goToUser = () => {
   router.push(`/${props.post.username}`)
 }
 
-const editPost = () => {
-  emit('set-current-id', props.post._id)
-  router.push('/posts/create')
+const editPost = (id) => {
+  router.push(`/posts/edit/${id}`)
 }
 
 const like = () => {
@@ -80,7 +79,7 @@ const deletePost = async () => {
     </div>
 
     <div v-if="isCreator" class="absolute-top-right text-white z-top">
-      <q-btn icon="edit" flat round dense @click="editPost" />
+      <q-btn icon="edit" flat round dense @click="editPost(post._id)" />
     </div>
 
     <div class="q-pa-sm text-positive text-caption">
