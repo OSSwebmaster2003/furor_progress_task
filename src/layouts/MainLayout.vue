@@ -17,7 +17,10 @@ const logout = () => auth.logout(router)
 
 <template>
   <q-layout view="lHh Lpr lFf" style="background-color: #1e2538; color: white">
-    <q-header class="bg-transparent text-white q-pa-lg" style="border-bottom: 1px solid gray">
+    <q-header
+      class="text-white q-pa-lg"
+      style="border-bottom: 1px solid gray; background-color: #1e2538"
+    >
       <q-toolbar class="row justify-between">
         <router-link to="/" class="row items-center justify-start">
           <img :src="logoText" alt="logo-text" style="height: 60px" />
