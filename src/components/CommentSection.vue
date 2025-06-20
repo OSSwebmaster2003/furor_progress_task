@@ -69,12 +69,16 @@ const handleSubmit = async () => {
         <q-input
           v-model="comment"
           type="textarea"
-          filled
+          outlined
+          borderless
           autogrow
           :rows="5"
           class="q-mb-md"
-          input-class="text-white"
+          color="white"
+          input-class="text-white placeholder-white"
+          label-color="white"
           label="Comment"
+          style="background-color: #1e2538"
         />
 
         <q-btn

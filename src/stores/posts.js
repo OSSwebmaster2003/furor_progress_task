@@ -82,11 +82,14 @@ export const usePostsStore = defineStore('posts', {
     },
 
     async likePost(id) {
+      this.isLoading = true
       try {
         const { data } = await api.likePost(id)
         this.posts = this.posts.map((p) => (p._id === data._id ? data : p))
       } catch (err) {
         console.error(err)
+      } finally {
+        this.isLoading = false
       }
     },
 

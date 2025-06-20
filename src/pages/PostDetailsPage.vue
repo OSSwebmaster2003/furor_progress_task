@@ -43,7 +43,7 @@ watch(
 
 <template>
   <q-page class="q-pa-md">
-    <q-card v-if="!isLoading && post" class="bg-grey-10 text-white q-pa-md q-mb-xl">
+    <q-card v-if="!isLoading && post" class="bg-black text-white q-pa-md q-mb-xl">
       <div class="row q-col-gutter-lg q-mb-md">
         <!-- Left Column -->
         <div class="col-12 col-md-8">
@@ -84,7 +84,6 @@ watch(
         </div>
       </div>
 
-      <!-- Comment Section -->
       <CommentSection :post="post" />
 
       <!-- Recommendations -->
@@ -113,7 +112,6 @@ watch(
       </div>
     </q-card>
 
-    <!-- Loader -->
     <q-card v-else class="flex flex-center q-pa-xl bg-grey-9 text-white">
       <q-spinner size="70px" color="white" />
     </q-card>

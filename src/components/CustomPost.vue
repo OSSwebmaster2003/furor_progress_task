@@ -91,9 +91,20 @@ const deletePost = async () => {
 
     <q-card-actions align="between" class="q-px-sm q-pb-sm">
       <q-btn
+        v-if="post.likes.find((like) => like === userId)"
         flat
         dense
         icon="thumb_up"
+        :label="likeLabel"
+        @click="like"
+        :disable="!user"
+        class="text-primary"
+      />
+      <q-btn
+        v-else
+        flat
+        dense
+        icon="thumb_up_off_alt"
         :label="likeLabel"
         @click="like"
         :disable="!user"
