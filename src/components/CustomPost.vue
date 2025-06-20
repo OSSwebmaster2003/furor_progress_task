@@ -2,18 +2,12 @@
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { usePostsStore } from 'src/stores/posts'
-// import { useQuasar } from 'quasar'
 import moment from 'moment'
 
-// Props
 const props = defineProps({
   post: Object,
 })
 
-// Emits
-// const emit = defineEmits(['set-current-id'])
-
-// const $q = useQuasar()
 const router = useRouter()
 const store = usePostsStore()
 
@@ -41,7 +35,6 @@ const likeLabel = computed(() => {
   return `${count} Like${count > 1 ? 's' : ''}`
 })
 
-// Methods
 const openPost = () => {
   router.push(`/posts/${props.post._id}`)
 }

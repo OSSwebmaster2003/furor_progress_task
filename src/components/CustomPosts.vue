@@ -3,20 +3,10 @@ import { computed } from 'vue'
 import { usePostsStore } from 'src/stores/posts'
 import Post from './CustomPost.vue'
 
-// Props
-const props = defineProps({
-  setCurrentId: Function,
-})
-
-// Store
 const store = usePostsStore()
 
 const posts = computed(() => store.posts)
 const isLoading = computed(() => store.isLoading)
-
-const setCurrentId = (id) => {
-  props.setCurrentId(id)
-}
 </script>
 
 <template>
@@ -24,14 +14,19 @@ const setCurrentId = (id) => {
 
   <q-spinner v-else-if="isLoading" color="white" size="40px" />
 
-  <div v-else class="row q-gutter-md bg-black q-pb-md rounded-lg">
-    <div v-for="post in posts" :key="post._id" class="col-3">
-      <Post :post="post" @set-current-id="setCurrentId" />
+  <div v-else class="row q-gutter-md bg-black q-pb-md q-pr-md rounded-lg post-grid">
+    <div v-for="post in posts" :key="post._id">
+      <Post :post="post" />
     </div>
   </div>
 </template>
 
 <style scoped>
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
 .grid {
   display: grid;
 }

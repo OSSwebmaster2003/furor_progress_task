@@ -67,12 +67,17 @@ export const usePostsStore = defineStore('posts', {
       }
     },
 
-    async updatePost(id, post) {
+    async updatePost(id, post, router) {
+      this.isLoading = true
       try {
         const { data } = await api.updatePost(id, post)
         this.posts = this.posts.map((p) => (p._id === data._id ? data : p))
+
+        router.push('/posts')
       } catch (err) {
         console.error(err)
+      } finally {
+        this.isLoading = false
       }
     },
 

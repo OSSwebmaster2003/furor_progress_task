@@ -24,6 +24,10 @@ const routes = [
         component: () => import('pages/PostDetailsPage.vue'),
       },
       {
+        path: 'posts/edit/:id',
+        component: () => import('pages/EditPostPage.vue'),
+      },
+      {
         path: 'auth',
         component: () => import('pages/AuthPage.vue'),
       },
